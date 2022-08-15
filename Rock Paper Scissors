@@ -1,0 +1,69 @@
+//make sure user enter valid input
+const getUserChoice = (userInput) => {
+  userInput = userInput.toLowerCase();
+  if (
+    userInput === "rock" ||
+    userInput === "paper" ||
+    userInput === "scissors" ||
+    userInput === "bomb"
+  ) {
+    return userInput;
+  } else {
+    console.log("Error!");
+  }
+};
+
+//allow computer to make random choice
+const getComputerChoice = () => {
+  let ComputerChoice = Math.floor(Math.random() * 3);
+  if (ComputerChoice === 0) {
+    return "rock";
+  } else if (ComputerChoice === 1) {
+    return "scissors";
+  } else if (ComputerChoice === 2) {
+    return "paper";
+  } else {
+    return "Error!";
+  }
+};
+
+//determine who is the winner
+const determineWinner = (userChoice, computerChoice) => {
+    if(userChoice === "bomb"){
+      return "UserWin!!!!";
+    }
+    if (userChoice === computerChoice) {
+      return "Tie";
+    } else {
+      if (userChoice = "rock") {
+        if (computerChoice = "paper") {
+          return "Computer Win!";
+        } else if (computerChoice = "scissors") {
+          return "User Win!";
+        }
+      } else if (userChoice = " scissors") {
+        if (computerChoice = "rock") {
+          return "Computer Win!";
+        } else if (computerChoice = "paper") {
+          return "User Win!";
+        }
+      } else if (userChoice = " paper") {
+        if (computerChoice = "scissors") {
+          return "Computer Win!";
+        } else if (computerChoice = "rock") {
+          return "User Win!";
+        }
+      }
+    }
+};
+
+//Main function
+const playGame = () => {
+  const userChoice = getUserChoice("bomb"); //Enter your choice here
+  const computerChoice = getComputerChoice();
+  console.log("You choice: " + userChoice);
+  console.log("The computer choice:" + computerChoice);
+  console.log(determineWinner(userChoice, computerChoice));
+};
+
+playGame();
