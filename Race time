@@ -1,0 +1,13 @@
+let raceNumber = Math.floor(Math.random() * 1000);
+const regearly = false;
+const age = 28;
+
+if (age >= 18 && regearly === true) {
+  raceNumber += 1000;
+  console.log(`You will race at 9:30, Your race number is ${raceNumber}`);
+} else if (age >= 18 && regearly === false) {
+  console.log(`You will race at 11:30, Your race number is ${raceNumber}`);
+}
+if (age < 18) {
+  console.log(`You will race at 12:30, Your race number is ${raceNumber}`);
+}
