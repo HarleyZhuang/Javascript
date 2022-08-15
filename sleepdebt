@@ -1,0 +1,59 @@
+//Enter you sleep hour everyday
+const getSleepHours = (day) => {
+  if (day === "monday") {
+    return 8;
+  } else if (day === "tuesday") {
+    return 8;
+  } else if (day === "wednesday") {
+    return 8;
+  } else if (day === "thursday") {
+    return 8;
+  } else if (day === "friday") {
+    return 8;
+  } else if (day === "saturday") {
+    return 9;
+  } else if (day === "sunday") {
+    return 9;
+  }
+};
+
+//Your total sleep hours in a week
+const getActualSleepHours = () => {
+  return (
+    getSleepHours("monday") +
+    getSleepHours("tuesday") +
+    getSleepHours("wednesday") +
+    getSleepHours("thursday") +
+    getSleepHours("friday") +
+    getSleepHours("saturday") +
+    getSleepHours("sunday")
+  );
+};
+
+//Ideal sleep hours in a week
+const getIdealSleepHours = () => {
+  const idealHours = 8;
+  return idealHours * 7;
+};
+
+//calculate sleep debt
+const calculateSleepDebt = () => {
+  const actualSleepHours = getActualSleepHours();
+  const idealSleepHours = getIdealSleepHours();
+  if (actualSleepHours === idealSleepHours) {
+    return "Your sleep hours is perfect!";
+  } else if (actualSleepHours >= idealSleepHours) {
+    return (
+      "You have slept more than you need. You have " +
+      (actualSleepHours - idealSleepHours) +
+      " more sleep hours."
+    );
+  } else if (actualSleepHours <= idealSleepHours) {
+    return (
+      "You will need more sleep hours! You need to sleep " +
+      (idealSleepHours - actualSleepHours) +
+      " more hours."
+    );
+  }
+};
+console.log(calculateSleepDebt());
